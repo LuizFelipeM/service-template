@@ -7,6 +7,6 @@
         "node_modules"
     ],
     "execMap": {
-        "ts": "node --inspect=0.0.0.0:9229 --nolazy --loader ts-node/esm"
+        "ts": "ts-node --esm"
     }
 }
