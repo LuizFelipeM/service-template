@@ -1,18 +1,31 @@
+import 'reflect-metadata'
+import 'dotenv/config'
 import express from 'express'
-import { serverSideRendering } from './views/serverSideRendering'
+import { pageRender } from './presentation/pages/serverSideRendering'
+import { containerRegister } from './containerRegister'
+import { UsersController } from './infrastructure/adapters/controllers/Users.controller'
+import { dataSource } from './dataSource'
 
 const port = process.env.PORT || 3000
 
-// Create http server
-const app = express()
+async function start() {
+  const app = express()
 
-app.get("/helloworld", (req, res) => {
-  console.log("app", JSON.stringify(req.app))
-  res.send({ hello: "world" })
-})
-serverSideRendering(app)
+  await dataSource.initialize()
+  console.log("Database connected")
 
-// Start http server
-app.listen(port, () => {
-  console.log(`Server started at http://localhost:${port}`)
-})
+  containerRegister(dataSource)
+
+  app.use(express.json())
+
+  app.use("/api/users", new UsersController().getRouter())
+  pageRender(app)
+
+  app.listen(port, () => {
+    console.log(`Listening on http://localhost:${port}`)
+  })
+}
+
+start()
+  .then(() => console.log("Server started sucessfully!"))
+  .catch((err) => console.error("Server failed to start with error:", err))
