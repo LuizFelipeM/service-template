@@ -23,5 +23,6 @@
 **/values.dev.yaml
 **/build
 **/dist
+**/Makefile
 LICENSE
 README.md
