@@ -1,6 +1,6 @@
 up:
-	docker-compose -f docker/docker-compose.yml up -d
+	docker-compose -f docker/docker-compose.yml --env-file .env up -d
 up-build:
-	docker-compose -f docker/docker-compose.yml up -d --build
+	docker-compose -f docker/docker-compose.yml --env-file .env up -d --build
 down:
-	docker-compose down
+	docker-compose -f docker/docker-compose.yml --env-file .env down

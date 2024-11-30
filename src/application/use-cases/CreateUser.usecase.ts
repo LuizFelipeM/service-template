@@ -7,8 +7,8 @@ import { UserRepository } from '../../infrastructure/adapters/repositories/User.
 export class CreateUserUseCase {
   constructor(@inject(UserRepository) private userRepository: UserRepository) { }
 
-  async execute(name: string, email: string) {
-    const user = new User(name, Email.create(email));
+  async execute(name: string, email: Email) {
+    const user = new User(name, email);
     await this.userRepository.save(user);
     return user;
   }

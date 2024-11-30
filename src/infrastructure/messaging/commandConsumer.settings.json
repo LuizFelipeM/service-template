@@ -1,0 +1,12 @@
+{
+    "webhook": {
+        "name": "service-template.commands",
+        "durable": true,
+        "bindings": [
+            {
+                "exchange": "commands",
+                "routingKey": "service-template.commands"
+            }
+        ]
+    }
+}
