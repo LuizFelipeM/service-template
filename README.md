@@ -19,3 +19,7 @@ The technologies also were choosen based on their flexibility, simplicity and pr
 - TypeORM - Database ORM
 - PostgreSQL - DBMS
 - RabbitMQ - Message broker
+
+## To Do
+- Add RabbitMQ to docker-compose.yml
+- Add linter to reinforce code standard
