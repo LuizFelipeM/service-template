@@ -13,6 +13,7 @@ Docker was also added to the project as the primary way of development so no nee
 ## Technologies
 
 The technologies also were choosen based on their flexibility, simplicity and previous knowledge. Also, worth mentioning, that this technologies are selected so they can be easily updated/replaced independently if necessary, this is the reason behind why I decided not to go with NestJS, everything would be thighted to it.
+
 - Typescript + NodeJS
 - Express - API
 - TSyringe - DI Container
@@ -21,5 +22,5 @@ The technologies also were choosen based on their flexibility, simplicity and pr
 - RabbitMQ - Message broker
 
 ## To Do
+
 - Add RabbitMQ to docker-compose.yml
-- Add linter to reinforce code standard

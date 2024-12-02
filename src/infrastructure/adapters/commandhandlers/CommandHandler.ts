@@ -1,3 +1,3 @@
 export interface CommandHandler {
-  handle(payload: unknown): void
+	handle(payload: unknown): void
 }

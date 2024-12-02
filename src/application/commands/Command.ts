@@ -1,3 +1,3 @@
 export interface Command<TPayload> {
-  execute(payload: TPayload): void
+	execute(payload: TPayload): void
 }
