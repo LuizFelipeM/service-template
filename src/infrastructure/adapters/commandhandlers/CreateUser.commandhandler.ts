@@ -1,8 +1,7 @@
 import { inject, injectable } from 'tsyringe'
-import { CreateUserCommand } from '../../../application/commands/CreateUser.command'
-import { Email } from '../../../domain/value-objects/Email.valueobject'
-import { CommandHandler } from './CommandHandler'
-import { isObject } from '../../../shared/utils/typeGuards'
+import { CreateUserCommand } from '../../../application/commands/CreateUser.command.js'
+import { CommandHandler } from './CommandHandler.js'
+import { isObject } from '../../../shared/utils/typeGuards.js'
 
 type Payload = { name: string; email: string }
 
@@ -21,7 +20,7 @@ export class CreateUserCommandHandler implements CommandHandler {
 
 		this.createUserCommand.execute({
 			name: payload.name,
-			email: Email.create(payload.email),
+			email: payload.email,
 		})
 	}
 }

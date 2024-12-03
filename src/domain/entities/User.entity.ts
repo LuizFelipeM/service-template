@@ -1,5 +1,5 @@
 import { randomUUID } from 'crypto'
-import { Email } from '../value-objects/Email.valueobject'
+import { Email } from '../value-objects/Email.valueobject.js'
 
 export class User {
 	public id: string
@@ -9,6 +9,11 @@ export class User {
 	constructor(name: string, email: Email)
 	constructor(name: string, email: Email, id: string)
 	constructor(name?: string, email?: Email, id?: string) {
+		if (!(email instanceof Email))
+			throw Error(
+				`Received an email of type ${typeof email} but the expected type is Email`,
+			)
+
 		this.id = id ?? randomUUID()
 		this.name = name
 		this.email = email

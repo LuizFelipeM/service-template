@@ -1,5 +1,5 @@
 import { DataSource } from 'typeorm'
-import { UserDao } from './infrastructure/adapters/data-access-objects/User.dao'
+import { UserDao } from './infrastructure/adapters/data-access-objects/User.dao.js'
 
 export const dataSource = new DataSource({
 	type: 'postgres',

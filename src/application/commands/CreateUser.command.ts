@@ -1,11 +1,10 @@
 import { inject, injectable } from 'tsyringe'
-import { Command } from './Command'
-import { CreateUserUseCase } from '../use-cases/CreateUser.usecase'
-import { Email } from '../../domain/value-objects/Email.valueobject'
+import { Command } from './Command.js'
+import { CreateUserUseCase } from '../use-cases/CreateUser.usecase.js'
 
 type CreateUserPayload = {
 	name: string
-	email: Email
+	email: string
 }
 
 @injectable()

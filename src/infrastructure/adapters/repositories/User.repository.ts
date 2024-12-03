@@ -1,8 +1,8 @@
 import { injectable, inject } from 'tsyringe'
 import { Repository } from 'typeorm'
-import { User } from '../../../domain/entities/User.entity'
-import { UserDao } from '../data-access-objects/User.dao'
-import { Email } from '../../../domain/value-objects/Email.valueobject'
+import { User } from '../../../domain/entities/User.entity.js'
+import { UserDao } from '../data-access-objects/User.dao.js'
+import { Email } from '../../../domain/value-objects/Email.valueobject.js'
 
 @injectable()
 export class UserRepository {

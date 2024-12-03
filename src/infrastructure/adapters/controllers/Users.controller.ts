@@ -1,5 +1,5 @@
 import { Request, Response, Router } from 'express'
-import { CreateUserUseCase } from '../../../application/use-cases/CreateUser.usecase'
+import { CreateUserUseCase } from '../../../application/use-cases/CreateUser.usecase.js'
 import { container } from 'tsyringe'
 
 export class UsersController {

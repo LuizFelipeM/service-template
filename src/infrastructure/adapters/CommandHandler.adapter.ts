@@ -1,6 +1,6 @@
 import { container } from 'tsyringe'
-import { CreateUserCommandHandler } from './commandhandlers/CreateUser.commandhandler'
-import { CommandHandler } from './commandhandlers/CommandHandler'
+import { CreateUserCommandHandler } from './commandhandlers/CreateUser.commandhandler.js'
+import { CommandHandler } from './commandhandlers/CommandHandler.js'
 
 class CommandHandlerNotFoundError extends Error {}
 

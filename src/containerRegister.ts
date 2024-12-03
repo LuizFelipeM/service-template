@@ -1,7 +1,7 @@
 import { AmqpClient } from 'amqp-simple-client'
 import { container } from 'tsyringe'
 import { DataSource, Repository } from 'typeorm'
-import { UserDao } from './infrastructure/adapters/data-access-objects/User.dao'
+import { UserDao } from './infrastructure/adapters/data-access-objects/User.dao.js'
 
 export function containerRegister(dataSource: DataSource) {
 	container.register<AmqpClient>(AmqpClient, {

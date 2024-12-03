@@ -5,8 +5,9 @@
 	"type": "module",
 	"scripts": {
 		"dev": "tsx watch --inspect=0.0.0.0:9229 ./src/app.ts",
-		"build:client": "vite build --ssrManifest --outDir dist/client",
-		"build:server": "vite build --ssr src/entry-server.tsx --outDir dist/server",
+		"build": "pnpm '/^build:.*/'",
+		"build:server": "tsc",
+		"build:client": "vite build --ssr src/presentation/pages/entry-server.tsx --ssrManifest --outDir dist/server",
 		"lint": "eslint",
 		"check:src": "prettier --check 'src/**/*.{js,jsx,ts,tsx,css,json}' --config ./.prettierrc",
 		"check:all": "prettier --check . --config ./.prettierrc",

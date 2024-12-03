@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises'
 import { Express } from 'express'
 import { ViteDevServer } from 'vite'
-import { isProduction } from '../../shared/contants'
+import { isProduction } from '../../shared/contants.js'
 
 // Constants
 const base = process.env.BASE || '/'
