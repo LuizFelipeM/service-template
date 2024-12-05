@@ -1,6 +1,22 @@
 name: ${PROJECT_NAME}
 
 services:
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:4-management-alpine
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: password
+    ports:
+      - 5672:5672
+      - 15672:15672
+    expose:
+      - 5672
+      - 15672
+    volumes:
+      - rabbitmqdata:/var/lib/rabbitmq/
+      - rabbitmqlog:/var/log/rabbitmq
+
   database:
     container_name: database
     image: postgres:17
@@ -19,9 +35,8 @@ services:
     depends_on:
       - database
     extends:
-      file: common-services.yml
-      service: webapp
-    image: ${PROJECT_NAME}
+      file: docker-compose.yml
+      service: service
     build:
       context: ..
       dockerfile: ./docker/Dockerfile.dev
@@ -31,19 +46,16 @@ services:
     env_file: ../.env
     environment:
       NODE_ENV: development
-      # HTTP Server port
-      PORT: 3000
       # The DB Connection string follow the format:
       # <dialect>://<username>:<password>@<hostname>/<databasepath>
       # Actually the user and password are defined in the database entrypoint
       DB_CONNECTION_STRING: postgresql://postgres:password@database/example
+      # RABBITMQ_URL: amqp://admin:password@localhost:5672
+      RABBITMQ_URL: amqp://localhost:5672
     ports:
-      # HTTP Server port
-      - 3000:3000
       # Debugger port
       - 9229:9229
     expose:
-      - 3000
       - 9229
     command: pnpm dev
 

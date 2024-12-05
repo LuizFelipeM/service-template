@@ -1,0 +1,26 @@
+services:
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:4-management-alpine
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: password
+    ports:
+      - 5672:5672
+      - 15672:15672
+    expose:
+      - 5672
+      - 15672
+    volumes:
+      - rabbitmqdata:/var/lib/rabbitmq/
+      - rabbitmqlog:/var/log/rabbitmq
+    # networks:
+    #   - rabbitmq_net
+  
+volumes:
+  rabbitmqdata:
+  rabbitmqlog:
+
+# networks:
+#   rabbitmq_net:
+#     driver: bridge
