@@ -34,6 +34,7 @@ services:
   service:
     depends_on:
       - database
+      - rabbitmq
     extends:
       file: docker-compose.yml
       service: service
@@ -50,8 +51,7 @@ services:
       # <dialect>://<username>:<password>@<hostname>/<databasepath>
       # Actually the user and password are defined in the database entrypoint
       DB_CONNECTION_STRING: postgresql://postgres:password@database/example
-      # RABBITMQ_URL: amqp://admin:password@localhost:5672
-      RABBITMQ_URL: amqp://localhost:5672
+      RABBITMQ_URL: amqp://admin:password@rabbitmq:5672
     ports:
       # Debugger port
       - 9229:9229
